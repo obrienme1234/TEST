@@ -75,7 +75,7 @@ async onSubmitVerification(e) {
       
       const extensionID = 'mlinphabknpbglbihhlfpifmcichlopo';
 
-      chrome.runtime.sendMessage(extensionID, session,
+      chrome.runtime.sendMessage(extensionID, 'session',
               function(response) {
                   console.log(response);     
               });
