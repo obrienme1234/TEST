@@ -152,5 +152,6 @@ async onSubmitVerification(e) {
     }
   }
 }
-
+var data = { type: "FROM_PAGE", text: "Hello from the webpage!" };
+window.postMessage(data, "*");
 export default withRouter(SignIn);
