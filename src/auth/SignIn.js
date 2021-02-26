@@ -1,3 +1,5 @@
+/*global chrome*/
+
 /*
  *   Copyright 2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 
@@ -70,6 +72,13 @@ async onSubmitVerification(e) {
       );
       console.log('Cognito User Data:', data);
       const session = await Auth.currentSession();
+      
+      const extensionId = 'mlinphabknpbglbihhlfpifmcichlopo';
+
+      chrome.runtime.sendMessage(extensionId, session,
+              function(response) {
+                  // console.log(response);     
+              });
       // console.log('Cognito User Access Token:', session.getAccessToken().getJwtToken());
       console.log('Cognito User Identity Token:', session.getIdToken().getJwtToken());
       // console.log('Cognito User Refresh Token', session.getRefreshToken().getToken());
@@ -142,7 +151,6 @@ async onSubmitVerification(e) {
   }
 
   render() {
-
     switch (this.state.stage) {
       case 0:
       default:
@@ -152,6 +160,6 @@ async onSubmitVerification(e) {
     }
   }
 }
-var data = { type: "FROM_PAGE", text: "Hello from the webpage!" };
-window.postMessage(data, "*");
+
 export default withRouter(SignIn);
+
