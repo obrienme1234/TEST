@@ -15,7 +15,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter, Redirect, Route, Switch } from 'react-router-dom';
-import { Home, FAQ, Investors, MainApp, Unicorns, Profile } from './pages';
+import { Home, FAQ, MainApp, Unicorns, Profile } from './pages';
 import { SignIn, SignUp } from './auth';
 import 'normalize.css';
 import Amplify from 'aws-amplify';
@@ -42,13 +42,12 @@ class App extends React.Component {
         <Switch>
           <Route exact path="/" component={Home}/>
           <Route path="/faq" component={FAQ} />
-          <Route path="/investors" component={Investors} />
           <Route path="/unicorns" component={Unicorns} />
           <Route path="/register" component={SignUp} />
 	        <Route path="/signin" component={SignIn} />
           <Route path="/profile" component={Profile} />
           <PrivateRoute path="/app" component={MainApp} />
-        </Switch>
+        </Switch> 
       </BrowserRouter>
     );
   }
