@@ -75,9 +75,10 @@ async onSubmitVerification(e) {
       
       const extensionId = 'mlinphabknpbglbihhlfpifmcichlopo';
 
-      chrome.runtime.sendMessage(extensionId, session,
-              function(response) {
-                  console.log(response);     });
+      chrome.storage.local.set({'key': extensionId}, function() {
+        console.log('Value is set to ' + extensionId);
+      });
+    
       // console.log('Cognito User Access Token:', session.getAccessToken().getJwtToken());
       console.log('Cognito User Identity Token:', session.getIdToken().getJwtToken());
       // console.log('Cognito User Refresh Token', session.getRefreshToken().getToken());
