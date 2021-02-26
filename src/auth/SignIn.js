@@ -75,6 +75,15 @@ async onSubmitVerification(e) {
       // console.log('Cognito User Refresh Token', session.getRefreshToken().getToken());
       this.setState({ stage: 0, email: '', password: '', code: '' });
       this.props.history.replace('/app');
+      const session = await Auth.currentSession();
+
+
+const extensionId = 'mlinphabknpbglbihhlfpifmcichlopo';
+
+chrome.runtime.sendMessage(extensionID, session,
+        function(response) {
+            // console.log(response);     
+        });
   } catch (err) {
       alert(err.message);
       console.error('Auth.confirmSignIn(): ', err);
