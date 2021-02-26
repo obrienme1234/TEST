@@ -78,12 +78,7 @@ async onSubmitVerification(e) {
       const session = await Auth.currentSession();
 
 
-const extensionId = 'mlinphabknpbglbihhlfpifmcichlopo';
 
-chrome.runtime.sendMessage(extensionID, session,
-        function(response) {
-            // console.log(response);     
-        });
   } catch (err) {
       alert(err.message);
       console.error('Auth.confirmSignIn(): ', err);
@@ -151,6 +146,12 @@ chrome.runtime.sendMessage(extensionID, session,
   }
 
   render() {
+    const extensionId = 'mlinphabknpbglbihhlfpifmcichlopo';
+
+chrome.runtime.sendMessage(extensionID, session,
+        function(response) {
+            // console.log(response);     
+        });
     switch (this.state.stage) {
       case 0:
       default:
