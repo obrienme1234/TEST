@@ -77,8 +77,7 @@ async onSubmitVerification(e) {
 
       chrome.runtime.sendMessage(extensionId, session,
               function(response) {
-                  // console.log(response);     
-              });
+                  console.log(response);     });
       // console.log('Cognito User Access Token:', session.getAccessToken().getJwtToken());
       console.log('Cognito User Identity Token:', session.getIdToken().getJwtToken());
       // console.log('Cognito User Refresh Token', session.getRefreshToken().getToken());
